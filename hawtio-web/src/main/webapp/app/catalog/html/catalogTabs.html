@@ -1,0 +1,23 @@
+<ul class="nav nav-tabs" ng-controller="Core.NavBarController">
+  <li ng-class='{active : isActive("#/catalog/summary")}'>
+    <a ng-href="#/catalog/summary{{hash}}">Summary</a>
+  </li>
+  <li ng-class='{active : isActive("#/catalog/eips")}'>
+    <a ng-href="#/catalog/eips{{hash}}">EIPs</a>
+  </li>
+  <li ng-class='{active : isActive("#/catalog/components")}'>
+    <a ng-href="#/catalog/components{{hash}}">Components</a>
+  </li>
+  <li ng-class='{active : isActive("#/catalog/endpoints")}'>
+    <a ng-href="#/catalog/endpoints{{hash}}">Endpoints</a>
+  </li>
+  <li ng-class='{active : isActive("#/catalog/dataformats")}'>
+    <a ng-href="#/catalog/dataformats{{hash}}">Data Formats</a>
+  </li>
+  <li ng-class='{active : isActive("#/catalog/languages")}'>
+    <a ng-href="#/catalog/languages{{hash}}">Languages</a>
+  </li>
+  <li ng-class='{active : isActive("#/catalog/archetypes")}'>
+    <a ng-href="#/catalog/archetypes{{hash}}">Maven Archetypes</a>
+  </li>
+</ul>

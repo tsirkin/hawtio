@@ -10,6 +10,10 @@
        http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
 
 
+  <!-- camel-catalog -->
+  <bean id="camelCatalog" class="org.apache.camel.catalog.CamelCatalogMBeanExporter"
+        init-method="init" destroy-method="destroy"/>
+
   <!--
     lets enable hawtio logs. See: http://hawt.io/logs/
 
