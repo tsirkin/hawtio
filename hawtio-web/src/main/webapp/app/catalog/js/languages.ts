@@ -1,7 +1,7 @@
 /// <reference path="camelCatalogPlugin.ts"/>
 module Camin {
 
-  _module.controller("CamelCatalogComponents.Controller", ["$scope", "jolokia", "localStorage", "$routeParams", ($scope, jolokia, localStorage, $routeParams) => {
+  _module.controller("CamelCatalogLanguages.Controller", ["$scope", "jolokia", "localStorage", "$routeParams", ($scope, jolokia, localStorage, $routeParams) => {
 
     var log:Logging.Logger = Logger.get("CamelCatalog");
 
@@ -21,18 +21,6 @@ module Camin {
       {
         field: 'label',
         displayName: 'Labels',
-        width: "*",
-        resizable: true
-      },
-      {
-        field: 'scheme',
-        displayName: 'Scheme',
-        width: "*",
-        resizable: true
-      },
-      {
-        field: 'syntax',
-        displayName: 'Syntax',
         width: "*",
         resizable: true
       },
@@ -62,17 +50,26 @@ module Camin {
         var json = JSON.parse(obj);
         for (var key in json) {
           var entry = json[key];
+
+          // remove language in labels as that is implied
+          var label:string = entry.label;
+          if (label.startsWith("language")) {
+            label = label.substr(8);
+            if (label.startsWith(",")) {
+              label = label.substr(1);
+            }
+          }
+
           arr.push(
             {
               title: entry.title,
               label: entry.label,
-              scheme: entry.scheme,
-              syntax: entry.syntax,
               description: entry.description
             }
           );
         }
 
+        arr = arr.sortBy("title");
         $scope.data = arr;
       } else {
         // clear data
@@ -87,7 +84,7 @@ module Camin {
 
     function loadData() {
       log.info("Loading components");
-      var query = {type: "exec", mbean: mbean, operation: 'listComponentsAsJson()'};
+      var query = {type: "exec", mbean: mbean, operation: 'listLanguagesAsJson()'};
       jolokia.request(query, onSuccess(render));
     }
 

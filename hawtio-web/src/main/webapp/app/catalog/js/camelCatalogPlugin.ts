@@ -16,7 +16,9 @@ module CamelCatalog {
       when('/catalog', {templateUrl: 'app/catalog/html/summary.html'}).
       when('/catalog/summary', {templateUrl: 'app/catalog/html/summary.html'}).
       when('/catalog/eips', {templateUrl: 'app/catalog/html/eips.html'}).
-      when('/catalog/components', {templateUrl: 'app/catalog/html/components.html'});
+      when('/catalog/components', {templateUrl: 'app/catalog/html/components.html'}).
+      when('/catalog/dataformats', {templateUrl: 'app/catalog/html/dataformats.html'}).
+      when('/catalog/languages', {templateUrl: 'app/catalog/html/languages.html'});
   }]);
 
   _module.filter('labelAsBadge', () => labelAsBadgeClass);
@@ -28,6 +30,8 @@ module CamelCatalog {
     helpRegistry.addUserDoc('catalog', 'app/catalog/doc/help.md', () => {
       return workspace.treeContainsDomainAndProperties(jmxDomain);
     });
+
+    // TODO: require Camel 2.16.1+
 
     workspace.topLevelTabs.push({
       id: "catalog",

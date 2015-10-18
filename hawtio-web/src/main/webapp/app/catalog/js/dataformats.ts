@@ -1,7 +1,7 @@
 /// <reference path="camelCatalogPlugin.ts"/>
 module Camin {
 
-  _module.controller("CamelCatalogComponents.Controller", ["$scope", "jolokia", "localStorage", "$routeParams", ($scope, jolokia, localStorage, $routeParams) => {
+  _module.controller("CamelCatalogDataFormats.Controller", ["$scope", "jolokia", "localStorage", "$routeParams", ($scope, jolokia, localStorage, $routeParams) => {
 
     var log:Logging.Logger = Logger.get("CamelCatalog");
 
@@ -21,18 +21,6 @@ module Camin {
       {
         field: 'label',
         displayName: 'Labels',
-        width: "*",
-        resizable: true
-      },
-      {
-        field: 'scheme',
-        displayName: 'Scheme',
-        width: "*",
-        resizable: true
-      },
-      {
-        field: 'syntax',
-        displayName: 'Syntax',
         width: "*",
         resizable: true
       },
@@ -62,12 +50,20 @@ module Camin {
         var json = JSON.parse(obj);
         for (var key in json) {
           var entry = json[key];
+
+          // remove dataformat,transformation in labels as that is implied
+          var label:string = entry.label;
+          if (label.startsWith("dataformat,transformation")) {
+            label = label.substr(25);
+            if (label.startsWith(",")) {
+              label = label.substr(1);
+            }
+          }
+
           arr.push(
             {
               title: entry.title,
-              label: entry.label,
-              scheme: entry.scheme,
-              syntax: entry.syntax,
+              label: label,
               description: entry.description
             }
           );
@@ -87,7 +83,7 @@ module Camin {
 
     function loadData() {
       log.info("Loading components");
-      var query = {type: "exec", mbean: mbean, operation: 'listComponentsAsJson()'};
+      var query = {type: "exec", mbean: mbean, operation: 'listDataFormatsAsJson()'};
       jolokia.request(query, onSuccess(render));
     }
 
