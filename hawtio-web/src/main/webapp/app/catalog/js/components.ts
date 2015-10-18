@@ -63,7 +63,7 @@ module CamelCatalog {
     };
 
     $scope.onViewComponent = (row) => {
-      $location.path('/catalog/components/' + row.entity.scheme);
+      $location.path('/catalog/components/' + row.scheme);
     };
 
     function render(response) {
