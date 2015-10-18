@@ -3,13 +3,36 @@
   <div ng-show="initDone">
 
     <h3>
-      <img src="{{componentIcon}}" width="48" height="48" ng-show="icon"/> {{componentTitle}}
+      <img src="{{componentIcon}}" width="48" height="48" ng-show="componentIcon"/> {{componentTitle}}
       <span style="margin-left: 10px" ng-repeat="label in componentLabels track by $index" class="pod-label badge"
             title="{{label}}">{{label}}</span>
     </h3>
+    <div>{{componentDescription}}</div>
+
+    <!-- TODO: add syntax -->
+
+    <p/>
+
+    <h4>Maven:</h4>
+
+    <div class="expandable-body well editor-autoresize">
+      <div class="CodeMirror cm-s-default CodeMirror-wrap">
+        <div class="CodeMirror-lines">
+<pre>
+<span class="cm-tag">&lt;dependency&gt;</span>
+  <span class="cm-tag">&lt;groupId&gt;</span><span class="cm-string">{{mavenGroupId}}</span><span class="cm-tag">&lt;/groupId&gt;</span>
+  <span class="cm-tag">&lt;artifactId&gt;</span><span class="cm-string">{{mavenArtifactId}}</span><span class="cm-tag">&lt;/artifactId&gt;</span>
+  <span class="cm-tag">&lt;version&gt;</span><span class="cm-string">{{mavenVersion}}</span><span class="cm-tag">&lt;/version&gt;</span>
+<span class="cm-tag">&lt;/dependency&gt;</span>
+</pre>
+        </div>
+      </div>
+    </div>
+
+    <p/>
 
     <div ng-show="componentGridOptions.data.length > 0">
-      <h2>Component options:</h2>
+      <h4>Component options:</h4>
 
       <div class="row-fluid">
         <div class="pull-right">
@@ -23,7 +46,7 @@
     </div>
 
     <div ng-show="endpointGridOptions.data.length > 0">
-      <h2>Endpoint options:</h2>
+      <h4>Endpoint options:</h4>
 
       <div class="row-fluid">
         <div class="pull-right">

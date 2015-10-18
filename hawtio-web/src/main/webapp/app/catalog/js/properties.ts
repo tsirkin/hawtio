@@ -12,6 +12,9 @@ module CamelCatalog {
     $scope.componentTitle = "";
     $scope.componentDescription = "";
     $scope.componentLabels = "";
+    $scope.mavenGroupId = "";
+    $scope.mavenArtifactId = "";
+    $scope.mavenVersion = "";
 
     $scope.componentData = [];
     $scope.endpointData = [];
@@ -19,6 +22,11 @@ module CamelCatalog {
     $scope.initDone = false;
 
     var columnDefs:any[] = [
+      {
+        field: 'index',
+        displayName: 'Index',
+        hidden: true
+      },
       {
         field: 'name',
         displayName: 'Name',
@@ -78,10 +86,15 @@ module CamelCatalog {
         $scope.componentDescription = json.component.description;
         $scope.componentLabels = json.component.label.split(",");
         $scope.componentIcon = Core.url("/img/icons/camel/endpoint24.png");
+        $scope.mavenGroupId = json.component.groupId;
+        $scope.mavenArtifactId = json.component.artifactId;
+        $scope.mavenVersion = json.component.version;
 
         var arr = [];
+        var index = 0;
         angular.forEach(json.componentProperties, function (property, key) {
           arr.push({
+            index: index++,
             name: key,
             required: property["required"],
             javaType: property["javaType"],
@@ -91,8 +104,10 @@ module CamelCatalog {
         $scope.componentData = arr;
 
         arr = [];
+        var index = 0;
         angular.forEach(json.properties, function (property, key) {
           arr.push({
+            index: index++,
             name: key,
             required: property["required"],
             javaType: property["javaType"],
