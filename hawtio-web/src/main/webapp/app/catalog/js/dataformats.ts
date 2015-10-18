@@ -25,6 +25,12 @@ module Camin {
         resizable: true
       },
       {
+        field: 'maven',
+        displayName: 'Maven',
+        width: "*",
+        resizable: true
+      },
+      {
         field: 'description',
         displayName: 'Description',
         width: "*",
@@ -59,12 +65,14 @@ module Camin {
               label = label.substr(1);
             }
           }
+          var maven:string = entry.groupId + "/" + entry.artifactId  + "/" + entry.version;
 
           arr.push(
             {
               title: entry.title,
               label: label,
-              description: entry.description
+              description: entry.description,
+              maven: maven
             }
           );
         }

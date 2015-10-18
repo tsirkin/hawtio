@@ -37,6 +37,12 @@ module Camin {
         resizable: true
       },
       {
+        field: 'maven',
+        displayName: 'Maven',
+        width: "*",
+        resizable: true
+      },
+      {
         field: 'description',
         displayName: 'Description',
         width: "*",
@@ -62,13 +68,15 @@ module Camin {
         var json = JSON.parse(obj);
         for (var key in json) {
           var entry = json[key];
+          var maven:string = entry.groupId + "/" + entry.artifactId  + "/" + entry.version;
           arr.push(
             {
               title: entry.title,
               label: entry.label,
               scheme: entry.scheme,
               syntax: entry.syntax,
-              description: entry.description
+              description: entry.description,
+              maven: maven
             }
           );
         }
