@@ -13,7 +13,7 @@ module Camin {
 
     var columnDefs:any[] = [
       {
-        field: 'title',
+        field: 'name',
         displayName: 'Name',
         width: "*",
         resizable: true
@@ -69,7 +69,8 @@ module Camin {
 
           arr.push(
             {
-              title: entry.title,
+              // use name as title so filter will filter on the entire entity (as it filters by default only on title)
+              name: entry.title,
               label: label,
               description: entry.description,
               maven: maven
