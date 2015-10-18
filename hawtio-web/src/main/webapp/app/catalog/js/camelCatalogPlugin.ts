@@ -22,15 +22,13 @@ module CamelCatalog {
       when('/catalog/archetypes', {templateUrl: 'app/catalog/html/archetypes.html'});
   }]);
 
-  _module.run(["workspace", "viewRegistry", "layoutFull", "helpRegistry", (workspace:Workspace, viewRegistry, layoutFull, helpRegistry) => {
+  _module.run(["workspace", "jolokia", "viewRegistry", "layoutFull", "helpRegistry", (workspace:Workspace, jolokia, viewRegistry, layoutFull, helpRegistry) => {
 
     viewRegistry['catalog'] = 'app/catalog/html/layoutCatalogTabs.html';
 
     helpRegistry.addUserDoc('catalog', 'app/catalog/doc/help.md', () => {
       return workspace.treeContainsDomainAndProperties(jmxDomain);
     });
-
-    // TODO: require Camel 2.16.1+
 
     workspace.topLevelTabs.push({
       id: "catalog",
