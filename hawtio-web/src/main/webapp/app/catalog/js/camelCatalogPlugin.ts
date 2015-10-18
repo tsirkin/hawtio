@@ -18,7 +18,8 @@ module CamelCatalog {
       when('/catalog/eips', {templateUrl: 'app/catalog/html/eips.html'}).
       when('/catalog/components', {templateUrl: 'app/catalog/html/components.html'}).
       when('/catalog/dataformats', {templateUrl: 'app/catalog/html/dataformats.html'}).
-      when('/catalog/languages', {templateUrl: 'app/catalog/html/languages.html'});
+      when('/catalog/languages', {templateUrl: 'app/catalog/html/languages.html'}).
+      when('/catalog/archetypes', {templateUrl: 'app/catalog/html/archetypes.html'});
   }]);
 
   _module.run(["workspace", "viewRegistry", "layoutFull", "helpRegistry", (workspace:Workspace, viewRegistry, layoutFull, helpRegistry) => {
