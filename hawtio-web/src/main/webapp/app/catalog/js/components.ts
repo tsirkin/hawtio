@@ -16,7 +16,7 @@ module CamelCatalog {
         field: 'name',
         displayName: 'Name',
         width: "*",
-        cellTemplate: '<div class="ngCellText mouse-pointer" ng-click="onViewComponent(row)" title="{{row.entity.name}}" ng-bind-html-unsafe="row.entity.name"></div>',
+        cellTemplate: '<div class="ngCellText mouse-pointer" ng-click="row.entity.onViewComponent()" title="{{row.entity.name}}" ng-bind-html-unsafe="row.entity.name"></div>',
         resizable: true
       },
       {
@@ -93,10 +93,19 @@ module CamelCatalog {
         $scope.data = [];
       }
 
-      $scope.initDone = "true";
+      addHandlerFunctions($scope.data);
 
       // ensure web page is updated
+      $scope.initDone = "true";
       Core.$apply($scope);
+    }
+
+    function addHandlerFunctions(data) {
+      data.forEach((item) => {
+        item['onViewComponent'] = () => {
+          $scope.onViewComponent(item);
+        };
+      });
     }
 
     function loadData() {
