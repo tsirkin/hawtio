@@ -1,9 +1,21 @@
 <div ng-controller="CamelCatalog.Controller">
 
-  Welcome to the Camel Catalog for Camel version: {{camelVersion}}
+  <div ng-show="initDone">
 
-  <p/>
+    Welcome to the Camel Catalog version: <strong>{{catalogVersion}}</strong>
+    <p/>
+    The Catalog contains:
+    <ul>
+      <li>{{eipsCount}} <a href="#/catalog/eips">Camel EIPs</a></li>
+      <li>{{componentsCount}} <a href="#/catalog/components">Camel Components</a></li>
+      <li>{{dataformatsCount}} <a href="#/catalog/dataformats">Camel Data Formats</a></li>
+      <li>{{languagesCount}} <a href="#/catalog/languages">Camel Languages</a></li>
+      <li>{{archetypesCount}} <a href="#/catalog/archetypes">Camel Maven Archetypes</a></li>
+    </ul>
+  </div>
 
-  The Catalog contains {{componentsCount}} components.
+  <div ng-hide="initDone">
+    <i class="icon-spinner icon-spin centered"></i>
+  </div>
 
 </div>
