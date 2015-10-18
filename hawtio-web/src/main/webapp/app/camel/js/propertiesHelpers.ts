@@ -106,7 +106,7 @@ module Camel {
       var name = value['key'];
       var labels = value['labels'];
       answer[name] = labels;
-      log.info("Tab(" + name + ") = " + labels);
+      log.debug("Tab(" + name + ") = " + labels);
     });
 
     return answer;

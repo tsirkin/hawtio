@@ -1,5 +1,5 @@
 /// <reference path="camelCatalogPlugin.ts"/>
-module Camin {
+module CamelCatalog {
 
   _module.controller("CamelCatalogLanguages.Controller", ["$scope", "jolokia", "localStorage", "$routeParams", ($scope, jolokia, localStorage, $routeParams) => {
 

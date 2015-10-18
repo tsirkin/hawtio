@@ -17,6 +17,8 @@ module CamelCatalog {
       when('/catalog/summary', {templateUrl: 'app/catalog/html/summary.html'}).
       when('/catalog/eips', {templateUrl: 'app/catalog/html/eips.html'}).
       when('/catalog/components', {templateUrl: 'app/catalog/html/components.html'}).
+      // TODO: should we have properties per type?
+      when('/catalog/components/:name', {templateUrl: 'app/catalog/html/properties.html'}).
       when('/catalog/dataformats', {templateUrl: 'app/catalog/html/dataformats.html'}).
       when('/catalog/languages', {templateUrl: 'app/catalog/html/languages.html'}).
       when('/catalog/archetypes', {templateUrl: 'app/catalog/html/archetypes.html'});
