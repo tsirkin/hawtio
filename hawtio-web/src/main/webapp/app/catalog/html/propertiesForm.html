@@ -1,0 +1,13 @@
+<div ng-controller="CamelCatalogPropertiesForm.Controller">
+
+  <div class="control-group inline-block">
+    <form class="form-inline no-bottom-margin">
+      <label>Hide Documentation:
+        <input type="checkbox" ng-model="hideHelp"
+               title="Hide documentation for the options"/>
+      </label>
+    </form>
+  </div>
+
+  <div ng-include="viewTemplate"></div>
+</div>

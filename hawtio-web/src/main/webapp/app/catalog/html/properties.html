@@ -1,13 +1,39 @@
 <div ng-controller="CamelCatalogProperties.Controller">
 
-  <div class="control-group inline-block">
-    <form class="form-inline no-bottom-margin">
-      <label>Hide Documentation:
-        <input type="checkbox" ng-model="hideHelp"
-               title="Hide documentation for the options"/>
-      </label>
-    </form>
+  <div ng-show="initDone">
+
+    <h3>
+      <img src="{{componentIcon}}" width="48" height="48" ng-show="icon"/> {{componentTitle}}
+      <span style="margin-left: 10px" ng-repeat="label in componentLabels track by $index" class="pod-label badge"
+            title="{{label}}">{{label}}</span>
+    </h3>
+
+    <div class="row-fluid">
+      <div class="pull-right">
+        <hawtio-filter ng-model="componentGridOptions.filterOptions.filterText"
+                       placeholder="Filter..."></hawtio-filter>
+      </div>
+    </div>
+
+    <h2>Component options:</h2>
+
+    <div ng-show="componentGridOptions.data.length > 0">
+      <div class="row-fluid">
+        <table class="table table-condensed table-striped" hawtio-simple-table="componentGridOptions"></table>
+      </div>
+    </div>
+
+    <h2>Endpoint options:</h2>
+    <div ng-show="endpointGridOptions.data.length > 0">
+      <div class="row-fluid">
+        <table class="table table-condensed table-striped" hawtio-simple-table="endpointGridOptions"></table>
+      </div>
+    </div>
+
   </div>
 
-  <div ng-include="viewTemplate"></div>
+  <div ng-hide="initDone">
+    <i class="icon-spinner icon-spin centered"></i>
+  </div>
+
 </div>
