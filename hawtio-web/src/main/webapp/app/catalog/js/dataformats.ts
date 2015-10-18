@@ -82,7 +82,7 @@ module Camin {
     }
 
     function loadData() {
-      log.info("Loading components");
+      log.info("Loading dataformats");
       var query = {type: "exec", mbean: mbean, operation: 'listDataFormatsAsJson()'};
       jolokia.request(query, onSuccess(render));
     }

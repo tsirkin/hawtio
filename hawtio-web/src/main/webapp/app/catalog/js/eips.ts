@@ -1,7 +1,7 @@
 /// <reference path="camelCatalogPlugin.ts"/>
 module Camin {
 
-  _module.controller("CamelCatalogLanguages.Controller", ["$scope", "jolokia", "localStorage", "$routeParams", ($scope, jolokia, localStorage, $routeParams) => {
+  _module.controller("CamelCatalogEIPs.Controller", ["$scope", "jolokia", "localStorage", "$routeParams", ($scope, jolokia, localStorage, $routeParams) => {
 
     var log:Logging.Logger = Logger.get("CamelCatalog");
 
@@ -50,20 +50,10 @@ module Camin {
         var json = JSON.parse(obj);
         for (var key in json) {
           var entry = json[key];
-
-          // remove language in labels as that is implied
-          var label:string = entry.label;
-          if (label.startsWith("language")) {
-            label = label.substr(8);
-            if (label.startsWith(",")) {
-              label = label.substr(1);
-            }
-          }
-
           arr.push(
             {
               title: entry.title,
-              label: label,
+              label: entry.label,
               description: entry.description
             }
           );
@@ -82,8 +72,8 @@ module Camin {
     }
 
     function loadData() {
-      log.info("Loading languages");
-      var query = {type: "exec", mbean: mbean, operation: 'listLanguagesAsJson()'};
+      log.info("Loading EIPs");
+      var query = {type: "exec", mbean: mbean, operation: 'listModelsAsJson()'};
       jolokia.request(query, onSuccess(render));
     }
 

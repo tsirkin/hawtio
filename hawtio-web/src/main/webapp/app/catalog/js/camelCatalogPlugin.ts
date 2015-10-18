@@ -21,8 +21,6 @@ module CamelCatalog {
       when('/catalog/languages', {templateUrl: 'app/catalog/html/languages.html'});
   }]);
 
-  _module.filter('labelAsBadge', () => labelAsBadgeClass);
-
   _module.run(["workspace", "viewRegistry", "layoutFull", "helpRegistry", (workspace:Workspace, viewRegistry, layoutFull, helpRegistry) => {
 
     viewRegistry['catalog'] = 'app/catalog/html/layoutCatalogTabs.html';
