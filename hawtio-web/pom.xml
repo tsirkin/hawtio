@@ -52,6 +52,14 @@
       <groupId>org.jolokia</groupId>
       <artifactId>jolokia-core</artifactId>
       <version>${jolokia-version}</version>
+
+    </dependency>
+
+    <dependency>
+      <groupId>io.hawt</groupId>
+      <artifactId>httpd-plugin</artifactId>
+      <version>${project.version}</version>
+      <classifier>classes</classifier>
     </dependency>
 
     <dependency>

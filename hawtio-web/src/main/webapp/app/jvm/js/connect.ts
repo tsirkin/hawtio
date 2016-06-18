@@ -102,6 +102,14 @@ module JVM {
         path: <Forms.FormElement> {
           type: "java.lang.String",
           tooltip: "The URL path used to connect to Jolokia on the remote server"
+        },
+        username: <Forms.FormElement> {
+          type: "java.lang.String",
+          tooltip: ""
+        },
+        password: <Forms.FormElement> {
+          type: "password",
+          tooltip: ""
         }
       }
     };
