@@ -55,12 +55,12 @@
 
     </dependency>
 
-    <dependency>
+    <!--<dependency>
       <groupId>io.hawt</groupId>
       <artifactId>httpd-plugin</artifactId>
       <version>${project.version}</version>
       <classifier>classes</classifier>
-    </dependency>
+    </dependency>-->
 
     <dependency>
       <groupId>io.hawt</groupId>

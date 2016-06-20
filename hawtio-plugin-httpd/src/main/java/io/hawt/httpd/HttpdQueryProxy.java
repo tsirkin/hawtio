@@ -91,6 +91,7 @@ public class HttpdQueryProxy {
             httpdQueryResult.setQueryStatus(HttpdQueryStatus.WRONG_URL);
             return httpdQueryResult;
         }
+        httpdQueryResult.setQueryStatus(HttpdQueryStatus.SUCCESS);
         httpdQueryResult.setRawResult(rawHttpdStatusResult);
         return httpdQueryResult;
     }
