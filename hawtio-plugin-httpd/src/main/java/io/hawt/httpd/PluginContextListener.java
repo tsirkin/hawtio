@@ -24,9 +24,9 @@ public class PluginContextListener implements ServletContextListener {
 
     plugin = new HawtioPlugin();
     // TODO: This should be fixed to work the same as the rest hawtio plugins i.e. via web.xml/maven
-    plugin.setContext("/httpd-plugin");
+    plugin.setContext("/hawtio");
     plugin.setName("httpd-plugin");
-    plugin.setScripts("plugin/js/httpPlugin.js");
+    plugin.setScripts("js/httpdPlugin.js");
     //plugin.setDomain(null);
     plugin.init();
 
