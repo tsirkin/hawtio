@@ -30,7 +30,7 @@ var Httpd = (function(Httpd) {
    * The top level path of this plugin on the server
    *
    */
-  Httpd.contextPath = "/httpd-plugin/";
+  Httpd.contextPath = "/hawtio/";
 
   /**
    * @property templatePath
@@ -38,7 +38,7 @@ var Httpd = (function(Httpd) {
    *
    * The path to this plugin's partials
    */
-  Httpd.templatePath = Httpd.contextPath + "plugin/html/";
+  Httpd.templatePath = Httpd.contextPath + "html/";
 
   /**
    * @property module
@@ -60,7 +60,7 @@ var Httpd = (function(Httpd) {
          */
         $routeProvider.
             when('/httpd_plugin', {
-              templateUrl: Httpd.templatePath + 'simple.html'
+              templateUrl: Httpd.templatePath + 'httpd.html'
             });
       });
 
@@ -81,7 +81,7 @@ var Httpd = (function(Httpd) {
 
     Httpd.log.info(Httpd.pluginName, " loaded");
 
-    Core.addCSS(Httpd.contextPath + "plugin/css/simple.css");
+    Core.addCSS(Httpd.contextPath + "css/httpd.css");
 
     // tell the app to use the full layout, also could use layoutTree
     // to get the JMX tree or provide a URL to a custom layout
